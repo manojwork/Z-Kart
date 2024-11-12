@@ -1,0 +1,110 @@
+
+
+
+// purchased products ...
+
+
+@import "variables";
+
+.products-button{
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    background-color:$bodyColor;
+    @include flex-center(row,center, center); /* Added mixin */
+
+        button{
+            width: 150px;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.132); 
+            margin: $ten;
+
+        }
+}
+
+
+.bought-products {
+
+    @include flex-center(column,flex-start, center); /* Added mixin */
+
+    h1 {
+        font-family: "SUSE", sans-serif;
+        color: #333;
+        font-size: 20px;
+    }
+
+    .product-container {
+        width: 78%;
+        @include flex-center(column,space-evenly, center); /* Added mixin */
+
+        min-height:max-content;
+
+        @media (max-width: 880px) {
+            width: 90%;
+        }
+    }
+a{
+    width: 100%;
+    .product-card {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border-radius: $twenty;
+        background-color: white;
+        box-shadow: $light-shadow;
+        transition: transform 0.2s;
+        margin:  20px auto;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: $twenty;
+
+            @media (max-width: 880px) {
+                width: 100px;
+                height: 100px;  
+            }
+        }
+
+        .product-details {
+            flex-grow: 1;
+
+            a {
+                font-size: 18px;
+                font-weight: bold;
+                color: #007bff;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .product-info {
+                margin-top: $ten;
+                font-size: 14px;
+                color: #666;
+
+                p{
+                    font-size: 17px;
+                }
+            }
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+    }
+
+
+}
+   
+}

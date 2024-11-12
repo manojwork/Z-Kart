@@ -1,0 +1,76 @@
+{{#if isLoader}}
+{{loading-component}}
+{{/if}}
+ 
+{{#authentication-layout}}
+
+<div class="form-content">
+<form  {{action "onSubmit" on="submit"}}>
+
+<h1><i class="fa-solid fa-plus"></i> Sign up</h1> 
+
+{{#if isAllowOtp}}
+
+<p style="color: green;"> Please Check Your Mail for OTP .</p>
+    <input type="number" class={{if error "error"}} value={{otp}} onkeypress={{action "validateOtp"}} oninput={{action "storeOtp"}} placeholder="* Otp" required> <br>
+   {{#if error}}<p>{{error}}</p>{{/if}}
+   <div class="submit-buttons">
+    <button type="button" {{action "back"}}><i class="fa-solid fa-backward"></i>  Back </button>
+    <button type="submit"><i class="fa-solid fa-user"></i> Sign up</button> 
+</div>
+
+{{else}}  
+ 
+    {{input type="email" class=(if emailError "error")  value=email placeholder="* Email" input=(action "clearEmailError") change=(action "checkEmailPattern") required=true }} <br>
+    {{#if emailError}} <p>{{emailError}}</p> {{/if}}
+
+    <input onkeypress={{action "preventNumbers"}} value={{name}}  class="{{if nameError "error"}}" placeholder="* Name" oninput={{action "clearNameError"}} onchange={{action "checkName"}} > <br>
+    {{#if nameError}} <p>{{nameError}}</p> {{/if}}
+
+    <input type="number" class="{{if mobileError "error"}}"  value={{mobile}} placeholder="+91  * Mobile"  onkeypress={{action "validateMobile"}} onchange={{action "storeMobile"}} oninput={{action "clearMobileError"}} > <br>
+    {{#if mobileError}} <p>{{mobileError}}</p> {{/if}}
+
+    {{input class=(if addressError "error") value=address placeholder="* Address" change=(action "checkAddress") input=(action "clearAddressError") }} <br>
+    {{#if addressError}} <p>{{addressError}}</p> {{/if}}
+
+<div class="password-container">
+        <input oninput={{action "checkPassword"}}  class="{{if passwordError "error"}}"  value={{password}} type={{if showNewPassword "text" "password"}}  placeholder="* Password" > <br>
+
+      <span class="eye-icon" {{action "toggleNewPasswordVisibility"}}>
+        {{#if showNewPassword}}
+         <i class="fa-solid fa-eye"></i> 
+         {{else}}
+         <i class="fa-solid fa-eye-slash"></i>
+         {{/if}}</span>
+
+
+    </div> <br>
+        {{#if passwordError}} <p>{{passwordError}}</p> {{/if}}
+
+
+ <div class="password-container">
+        <input oninput={{action "checkConfirmPassword"}}  type="password"  class="{{if confirmPasswordError "error"}}" type={{if showPassword "text" "password"}} value={{passwordConfirm}}  placeholder="* Confirm Password" > <br>
+
+        <span class="eye-icon" {{action "togglePasswordVisibility"}}>
+        {{#if showPassword}}
+         <i class="fa-solid fa-eye"></i> 
+         {{else}}
+         <i class="fa-solid fa-eye-slash"></i>
+         {{/if}}</span>
+
+    </div> <br>
+
+{{#if confirmPasswordError}}<p>{{confirmPasswordError}}</p>{{/if}}
+
+        <button {{action "next"}}><i class="fa-solid fa-forward"></i> Next </button>
+    {{/if}}
+
+
+</form>
+</div>
+<div class="buttons">
+    {{#link-to "signin"}}    <button> Sign in </button> {{/link-to}}
+    {{#link-to "changepassword"}}    <button> Change Password </button> {{/link-to}}
+</div>
+
+{{/authentication-layout}}

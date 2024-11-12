@@ -1,0 +1,116 @@
+{{#if isLoader}}
+{{loading-component}}
+{{/if}}
+
+{{#if orderError}}
+{{success-order error=true }}
+{{/if}}
+
+{{#if orderSuccess}}
+{{success-order}}
+{{/if}}
+
+{{#if isCustomer}}
+
+{{#if isBuyProduct}}
+{{order-details  name=name mobile=mobile address=address triggerBack=(action "back") triggerBuy=(action "buy") }}
+{{/if}}
+
+{{/if}}
+
+<div class="details">
+  <div class="content">
+       <div 
+        class="magnified" 
+        style="{{magnifiedStyle}}">
+      </div>
+   <div class="images">
+      <div 
+        class="image" >
+        <img src="{{model.product.image}}" alt="model.name"
+         onmousemove={{action "handleMouseMove"}} 
+         onmouseleave={{action "handleMouseLeave"}} width="90%">
+
+
+      </div>
+       <div class="text">
+      <h1>{{model.product.name}}</h1>
+      <p class="description">Product Id : {{model.product.product_id}}</p>
+      <p class="description">{{model.product.model}}</p>
+      <p class="description">{{model.product.brand}}</p>
+      <p class="description">{{model.product.category}}</p>
+      <p class="count">Available: {{model.product.stock}}</p>
+
+      {{#if isMaxStock}}
+
+           <h3 style="color: green;">Price : {{discountedPrice}} Rs</h3> 
+          <del> <h4 style="color: red;">Price : {{model.product.price}} Rs</h4> </del>
+
+           <h4 style="color:red;">Deal of the Moment Discount : 10% </h4>
+      {{else}}
+
+        <h2 style="color: green; text-align:left">Price : {{model.product.price}} Rs</h2>
+
+      {{/if}}
+
+
+   </div>
+    </div>
+ 
+ <div class="content-buttons">
+
+      <div class="buttons">
+
+    {{#if isCustomer}}
+
+    {{#if inStock}}
+     
+    <a {{action "buyProduct"}} >Buy</a>
+
+    <a {{action "addToCart"}} style="{{if addingChange "background-color:gray; "}} {{if addedChange "background-color: #ff8c00;"}}" >{{addedToCart}}</a>
+    {{else}}
+    <h2 style="color: red;"> Out Of Stock</h2>
+    {{/if}}
+
+    {{else}}
+
+    {{#link-to "signin"}} Sign In {{/link-to}}
+    {{#link-to "signup"}} Sign Up {{/link-to}}
+
+
+    {{/if}}
+
+  </div>
+
+ </div>
+
+   
+
+  </div>
+
+
+</div>
+
+{{#if relateProducts}}
+<div class="offer">
+  <h1> Related products</h1>
+</div>
+{{/if}}
+ 
+<div class="products">
+  {{#each displayProducts as |product|}}
+    {{product-layout product=product}}
+  {{/each}}
+</div>
+
+<div class="next-prev">
+
+{{#if isPrevious}}
+<i {{action "previous"}} class="fa-solid fa-chevron-left"></i>
+{{/if}}
+
+{{#if isNext}}
+<i  {{action "next"}} class="fa-solid fa-chevron-right"></i>
+{{/if}}
+
+</div>

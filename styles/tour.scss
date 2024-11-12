@@ -1,0 +1,140 @@
+
+// Tour ...
+
+@import "variables";
+
+.navbar{
+    z-index: 100;
+    position: absolute;
+    border-radius: $ten;
+    box-shadow: 0 2px 30px rgb(0, 0, 0);
+    top:10px;
+    
+}
+
+.background{
+
+    z-index: 100;
+    width: 400px;
+    height:300px;
+    background-color:white;
+    position: absolute;
+    margin: $ten;
+    border-radius: $basic-radius;
+    @include flex-center(column, space-evenly, center); /* Added mixin */
+    box-shadow: 0 2px 30px rgba(0, 0, 0,0.742);
+
+    @media (max-width:450px) {
+
+        width: 90vw;
+    
+    }
+
+    .textcontent{
+        width: 80%;
+        p{
+            text-align:justify ;
+        }
+    }
+
+    .back-buttons{
+
+
+        button{
+            background-color: green;
+            height: 50px;
+            @media (max-width:800px) {
+
+                width: 100px;
+
+
+    
+            }
+          
+
+        }
+
+      
+    }
+
+
+}
+.logoH{
+
+    left: 10px;
+    width: 160px;
+    height: 75px;
+}
+
+.searchH{
+
+    left: 38.5vw;
+    width: 25.5vw;
+    height:  75px;
+
+}
+
+.optionsH{
+
+    width: 30vw;
+    height: 75px;
+    right:10px;
+
+
+}
+
+.logoB{
+    left:0;
+}
+
+.searchB{
+
+    left:36vw;
+
+}
+
+.optionsB{
+    right: 0;
+}
+
+@media (max-width:800px) {
+
+
+    .searchB,.logoB,.optionsB{
+
+        left: 23vw;
+    }
+
+    .searchH{
+        top:11vh;
+        width: 70vw;
+        left: 15vw;
+        margin: auto;
+        height: 75px;
+    }
+    .optionsH{
+        height: 50px;
+        width: 50px;
+        top:20px
+    }
+ 
+
+
+    @media (max-width:650px) {
+
+        .searchB,.logoB,.optionsB{
+    
+            left: 8px;
+        }
+
+        .searchH{
+            top:10vh;
+            left:13vw;
+            width: 80vw;
+            height: 75px;
+        }
+        
+    }
+    
+}
+

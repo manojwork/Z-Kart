@@ -1,0 +1,57 @@
+
+// Text Fonds
+$logoFond : 'spicy rice', sans-serif;
+$textFond : "Arimo", sans-serif;
+$sideFond : "Roboto",sans-serif;
+
+// Colors
+$logoviolet:rgb(115, 0, 255);
+$yellowBackground : rgb(255, 157, 0);
+$lightYellow : rgb(255, 208, 131);
+$sideColor : #3d3d3d;
+$bodyColor: rgb(251, 224, 177);
+$primary-color: #ff8c00; // Darker orange
+$secondary-color: #e07b00;
+$text-color: #333;
+$background-color: #f9f9f9;
+$border-color: #ddd;
+
+// Sizes
+$font-size-base: 1rem;
+$border-radius: 8px;
+$input-padding: 12px;
+$ten:10px;
+$fifteen:15px; 
+$twenty:20px;
+$basic-radius: 20px;
+$button-radius: 10px;
+$scale:scale(1.2);
+
+// shadows 
+$more-shadow:1px 1px 30px rgba(0, 0, 0, 0.432);
+$light-shadow:1px 1px 30px rgba(0, 0, 0, 0.232);
+
+// bg color of pop up
+$pop-up-background:rgba(0, 0, 0, 0.5);
+
+// button color 
+$button-red:rgb(255, 73, 73);
+
+// display flex mixin .
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+  }
+
+
+  @mixin icon-in-button() {
+    i{
+      color:white;
+      text-align:center; 
+      font-size:19px
+    }
+  }
+
+  

@@ -1,0 +1,20 @@
+{{#if allowTour}}
+{{homepage-tour triggerSkipTour=(action "skipTour")}}
+{{/if}}
+
+
+{{poster-banner}}
+
+
+<div class="offer">
+  <h1>  Categories </h1>
+</div>
+<div class="products">
+
+  {{#each categories as |category|}}
+
+   {{product-layout category=true category=category }}
+
+  {{/each}}
+
+</div>

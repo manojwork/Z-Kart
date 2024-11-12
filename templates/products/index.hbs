@@ -1,0 +1,83 @@
+{{#if isFilter}}
+
+{{filter-bar triggerAfterError=(action "afterError") isGlobal=isGlobal  triggerBack=(action "back") triggerFilter = (action "filter") triggerClear = (action "clear") }}
+
+{{/if}}
+ 
+<div class="filter-button">
+  <button style="background-color:navy"  title=" Global Filter " {{action "displayFilter" }}><i style="{{if isFilteredProducts "color:lightgreen;"}}"  class="fa-solid fa-filter"></i> Filter</button>
+</div>
+
+{{#if isRecentlyAdded}}
+
+<div class="offer">
+
+  <h1>  Deal  of the  Moment </h1>
+
+</div>
+
+<div class="products">
+
+  {{#each model as |product|}}
+
+      {{product-layout isDeal=true product=product}}
+
+  {{/each}}
+
+</div>
+
+{{/if}}
+
+
+{{#if isRecentlyAdded}}
+
+<div class="offer">
+  <h1> Recently Added Products </h1>
+</div>
+
+{{else}}
+
+<div class="offer">
+  <h1> Filtered Products </h1>
+</div>
+
+{{/if}}
+
+<div class="products">
+
+  {{#if displayProducts}}
+
+  {{#each displayProducts as |product|}}
+
+      {{product-layout product=product}}
+
+  {{/each}}
+
+  {{else}}
+
+<video playsinline autoplay loop muted  class="max-w-[500px] min-w-[250px] max-h-[330px]" style="width: 400px; border-radius:20px"><source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/empty-cart-animation-download-in-lottie-json-gif-static-svg-file-formats--no-item-shopping-shpping-bascket-food-delivery-pack-e-commerce-animations-4391074.mp4" type="video/mp4"></video>
+
+  {{/if}}
+
+</div>
+
+<div class="next-prev">
+
+{{#if isPrevious}}
+<i {{action "previous"}} class="fa-solid fa-chevron-left"></i>
+{{/if}}
+
+{{#if isNext}}
+<i  {{action "next"}} class="fa-solid fa-chevron-right"></i>
+{{/if}}
+
+</div>
+
+
+
+
+
+
+
+
+

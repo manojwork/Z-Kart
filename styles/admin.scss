@@ -1,0 +1,138 @@
+
+// Admin Page ....
+
+@import "variables";
+
+
+$border-color: #ddd;
+
+// Mixins
+@mixin responsive-width($desktop: 80%, $tablet: 90%, $mobile: 95%) {
+  width: $desktop;
+
+  @media (max-width: 768px) {
+    width: $tablet;
+  }
+
+  @media (max-width: 480px) {
+    width: $mobile;
+  }
+}
+
+// Container Styles
+.container {
+  @include responsive-width();
+  margin: auto;
+  padding: $twenty;
+  min-height: 90vh;
+
+  @media (max-width: 768px) {
+    padding: $fifteen;
+  }
+
+  @media (max-width: 480px) {
+    padding: $ten;
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: $twenty;
+}
+
+// Data Container Styles
+.data-container {
+  border: 1px solid $border-color;
+  padding: $twenty;
+  background-color: white;
+  overflow: auto;
+  box-shadow: $light-shadow;
+  border-radius: $twenty;
+
+  #date {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+    margin: 10px;
+  
+    &:focus {
+      border-color: #4a90e2;
+      outline: none;
+      background-color: #fff;
+    }
+  
+    &:hover {
+      border-color: #888;
+    }
+  }
+  
+  label[for="date"] {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+    padding: 0 0 0 20px ;
+  }
+
+  
+}
+
+// Table Styles
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+
+  th, td {
+    .small-image{
+      width: 100px;
+      height: 100px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+
+        }
+    padding: 12px 8px;
+    border: 1px solid $border-color;    
+  }
+
+  th {
+    background-color: $yellowBackground;
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    th, td {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    th {
+      display: none;
+    }
+
+    td {
+      display: block;
+      width: 100%;
+      text-align: center;
+      .small-image{
+        margin: auto;
+      }
+    }
+
+    tr {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}
+
+
+
+

@@ -1,0 +1,153 @@
+
+
+// products Details ....
+
+@import "variables";
+
+.details {
+    max-width: 70vw;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: $twenty;
+    box-shadow: $light-shadow;
+    @include flex-center(column, space-evenly, center); /* Added mixin */
+    padding: $twenty;
+    height: max-content;
+  
+    .content {
+      width: 100%;
+      height: max-content;
+      @include flex-center(column, space-evenly, center); /* Added mixin */
+      flex-wrap: wrap;
+
+
+      .content-buttons{
+        width: 100%;
+        @include flex-center(row, space-evenly, center); /* Added mixin */
+
+        .buttons {
+          gap: $fifteen;
+          margin-top: $twenty;
+          @include flex-center(row,center, center); /* Added mixin */
+    
+      
+          a {
+            text-align: center;
+            width: 100px;
+            text-decoration: none;
+            background-color: green;
+            color: white;
+            padding: 12px $twenty;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.423);
+
+            cursor: pointer;
+      
+            &:hover {
+              background-color: darkgreen;
+            }
+          }
+        }
+
+
+
+        .text {
+          h3 {
+            font-size: 2em;
+            margin: 0;
+            color: #333;
+          }
+      
+          .count {
+            color: #888;
+            margin: $ten 0;
+            font-size: 1.2em;
+          }
+      
+          .description {
+            font-size: 1em;
+            color: #666;
+          }
+        }
+
+      }
+
+
+      .images{
+        width: 100%;
+        height: max-content;
+        @include flex-center(row, space-evenly, center); /* Added mixin */
+
+        .image {
+          width: 400px;
+          height: 500px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;  // Centers the background image
+          border-radius: $ten;
+          @include flex-center(row, center, center); 
+
+          img{
+
+           @media (min-width:1300px) {
+            cursor: zoom-in;
+
+            &:hover{
+              box-shadow: $light-shadow;
+            }
+
+           }
+          }
+    
+          @media (max-width:800px) {
+            width: 100%;
+          }
+
+        }
+
+        @media (max-width:800px) {
+          @include flex-center(column, space-evenly, center); /* Added mixin */
+        }
+
+
+      }
+
+      .magnified {
+        position: absolute;
+        right : 18vw;          
+        width: 400px;
+        height: 400px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left: 20px;
+        box-shadow: $light-shadow;
+        display: block;
+
+        @media (max-width:1300px) {
+          display: none;
+        }
+
+      }
+
+    }
+
+
+    @media (max-width: 800px) {
+      .content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+  
+      .image {
+        width: 100%;
+        height: 60vh;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  
+  }
+  

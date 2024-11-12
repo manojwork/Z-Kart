@@ -1,0 +1,103 @@
+
+{{#if isLoader}}
+{{loading-component}}
+{{/if}}
+ 
+{{#if alterPopup}}
+{{alert-pop title="Delete Alert" message=" Do you Want To delete Cart Product " id=deleteCartProductId triggerBack=(action "back") triggerConfrim=(action "deleteProductConfirm")  }}
+{{/if}}
+
+{{#if orderError}}
+{{success-order error=true }}  
+{{/if}}
+
+{{#if orderSuccess}}
+{{success-order}}
+{{/if}}
+
+{{#if isBuyProduct}}
+{{order-details  name=applicationModel.name mobile=applicationModel.mobile address=applicationModel.address triggerBack=(action "back") triggerBuy=(action "checkOut") }}
+{{/if}}
+
+<div class="cart-product">
+  <div class="cart-header">
+    <h2 >  <i   style="cursor: text;" class="fa-solid fa-cart-shopping"></i> Cart Items</h2>
+  </div>
+  
+{{#if customerCoupon }}
+  <p style="color: green; text-align:center"> The Customer Coupon is Enabled .</p>
+{{/if}}
+
+{{#if cartProductsService.cartProductsList.cartProducts }}
+
+{{#each cartProductsService.cartProductsList.cartProducts as |cartProduct|}}
+
+{{cart-product cartProduct=cartProduct triggerUpdateCount=(action  "updateCount")  triggerDeleteProduct=(action "deleteProduct")}}
+
+    {{/each}}
+    
+<div class="coupons">
+  <h2>Discount Details </h2>
+
+    <ul>
+    {{#each displayCoupon as |coupon|}}
+    <li> {{coupon}}</li>
+      {{/each}}
+
+
+    </ul>
+
+  </div>
+
+  {{#if isCheckOut}}
+
+<div class="addCouponCode">
+
+        <h3> Coupon Code </h3>
+
+        <select onchange={{action "addCoupon"}}>
+          <option value="remove" selected={{eq "remove" selectedOption}}>Select Coupon</option>
+          {{#if customerCoupon}}
+              <option value="user" selected={{eq "user" selectedOption}} >{{customerCoupon.coupon}}</option>
+          {{/if}}
+          {{#if totalPriceCoupon}}
+              <option value="maxprice" selected={{eq "maxprice" selectedOption}} >{{totalPriceCoupon.coupon}}</option>
+          {{/if}}
+      </select>
+
+
+  </div>
+
+  <div class="prices">
+
+    <div class="price-row">
+    <h3> <i class="fa-brands fa-ethereum"></i> Discount Price </h3> <h3>{{discount}} Rs</h3> 
+    </div>
+
+      <div class="price-row">
+     <h3> <i class="fa-brands fa-ethereum"></i> Total Price </h3> <h3>{{totalPrice}} Rs</h3> 
+    </div>
+    
+      <div class="price-row">
+     <h3> <i class="fa-brands fa-ethereum"></i> Final Price  </h3> <h3 class="final-price" style="color: green;" >{{displayTotal}} Rs</h3> 
+    </div>
+  </div>
+
+    <div class="buttons">
+      <button {{action "buyProduct"}} > Check Out</button>
+    </div>
+
+    {{else}}
+    <p style="color: red;"> Please Check The availability of Products </p>
+    {{/if}}
+
+    {{else}}
+  <div class="cart-header">
+          <video playsinline autoplay loop muted  class="max-w-[500px] min-w-[250px] max-h-[330px]" style="width: 50%; border-radius:20px; margin:auto;"><source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/empty-cart-animation-download-in-lottie-json-gif-static-svg-file-formats--no-item-shopping-shpping-bascket-food-delivery-pack-e-commerce-animations-4391074.mp4" type="video/mp4"></video>
+  </div>
+  <div class="buttons">
+              {{#link-to "products.index"}}<button style="background-color: rgb(255, 140, 0);">Add Products</button> {{/link-to}}
+  </div>
+    {{/if}}
+
+</div>

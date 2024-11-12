@@ -1,0 +1,105 @@
+
+{{admin-nav-bar product=true    triggerDisplayCustomers=(action "displayCustomers")
+    
+    triggerDisplayProducts=(action "displayProducts")
+    triggerDisplayAdmins=(action "displayAdmins")
+    triggerDisplayOrders=(action "displayOrders")
+  
+    triggerProductsSearch=(action "searchProducts")
+    triggerCustomersSearch=(action "searchCustomers")
+    triggerAdminsSearch=(action "searchAdmins")
+    triggerOrdersSearch=(action "searchOrders")
+
+    triggerAddedProduct=(action "addedProduct")
+    triggerAddedUser=(action "addedCustomer")
+    triggerAfterError=(action "afterError")
+
+    customersData=customersData
+    adminsData=adminsData 
+ 
+}}
+
+
+<div class="container">
+
+  <div id="data-display" class="data-container">
+
+  {{#if isAdmins}}
+
+    <h1 style="text-align:center"> Admin Details </h1>
+
+  {{#if admins}}
+
+  {{customers-table triggerUpdateCustomer=(action "updateAdmin")  customers=admins  triggerReloadCustomer=(action "reloadAdmins") triggerAfterError=(action "afterError") }}
+
+  {{else}}
+
+  <p>No Record</p>
+
+  {{/if}}
+
+  {{else if isCustomers}}
+
+  <h1 style="text-align:center"> Customer Details </h1>
+
+{{#if customers}}  
+
+  {{customers-table triggerUpdateCustomer=(action "updateCustomer") customers=customers  triggerReloadCustomer=(action "reloadCustomers") triggerAfterError=(action "afterError") }}
+
+{{else}}
+<p>No Records</p>
+
+{{/if}}
+
+  {{else if isProducts}}
+ 
+
+      <h1 style="text-align:center"> Product Details </h1>
+
+    
+
+    {{#if products}}
+    
+ 
+  {{ products-table triggerAfterError=(action "afterError") triggerUpdateProduct=(action "updateProduct") products=products triggerReloadProducts=(action "reloadProducts" ) }}
+
+  {{else}}
+
+  <p>No Records</p>
+
+  {{/if}}
+
+  {{else if isOrders}}
+
+      <h1 style="text-align:center"> Order Details </h1>
+
+      <label for="date">Filter By date:</label>
+      <input type="date" id="date" max={{today}} onchange={{action "updateDate" value="target.value"}}> 
+  {{#if orders}}
+
+  {{orders-table orders=orders triggerDisplayOrderProducts=(action "displayOrderProducts") }}
+
+  {{else}}
+  <p>No Records</p>
+  {{/if}}
+
+  {{else if isOrderProducts}}
+
+  <h2> Order ID {{orderId}}</h2>
+
+  <button style="width: 150px; font-size:17px; padding : 10px;margin:10px" {{action "displayOrders"}}> Back To Orders</button>
+  {{#if orderProducts}}
+
+  {{orderproducts-table orderProducts=orderProducts }}
+
+  {{else}}
+  <p>No Records</p>
+  {{/if}}
+  
+  {{else}}
+    <p>No data available</p>
+  {{/if}}
+
+
+  </div>
+</div>

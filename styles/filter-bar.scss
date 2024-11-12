@@ -1,0 +1,250 @@
+
+
+//  Filter Bar ...
+
+
+@import "variables";
+
+
+.background-body{
+
+    background: $pop-up-background;
+    width: 100vw;
+    height: 100vh;
+    z-index: 110;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: scroll;
+    @include flex-center(row, center, center); /* Added mixin */
+
+    .filter-base{
+
+
+        .spin {
+            display: inline-block;
+            animation: spin 1s linear infinite;
+          }
+          
+          @keyframes spin {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }          
+
+        .base-buttons{
+
+                    width: 100%;
+                    @include flex-center(row, space-evenly, center); /* Added mixin */
+                    padding: $twenty 0;
+            
+                    button{
+                        margin: 5px;
+                        background-color: $primary-color;
+                        @include icon-in-button();
+                    }
+            
+                    button:hover{
+                        background-color: rgb(255, 106, 0);
+                    }
+                }
+
+
+
+        background-color: white;
+        border-radius: $basic-radius;
+        width: 50%;
+        min-height: 70%;
+        max-height: max-content;
+
+        h2{
+            font-family: $sideFond;
+            font-weight: 450;
+        }
+
+
+        .content{
+
+                width:90%;
+                height: max-content;
+                @include flex-center(row,space-between, flex-start); /* Added mixin */
+                border-radius: 10px;
+                padding: 20px;
+                gap: 30px;
+                margin: auto;
+
+
+                .filter-options{
+                    width: 35%;
+                    height: 600px;
+                    background-color: rgb(254, 229, 196);
+                    border-radius: $ten;
+                    z-index: 5;
+                    @include flex-center(column,space-between, center); /* Added mixin */
+
+                
+               .buttons{
+                width: 100%;
+                height: max-content;
+                button{
+                    width: 100%;
+                    background:none;
+                    color: black; 
+                    text-align: left;
+                    border: 0;
+                    box-shadow: none;
+                    margin-bottom: 8px;
+                    
+                    i{
+                        font-size: 25px;
+                    }
+
+                    &.highlight{
+                        background-color: transparent;
+                        box-shadow:1px 1px 7px rgba(0, 0, 0, 0.432);
+                    }
+
+                    &.selected{
+                        i{
+                            color:green;
+                        }
+                    }
+
+                }
+               }
+
+
+               p{
+                font-size:18px;
+                span{
+                    width: 50px;
+                    font-size: 25px;
+                    height: 50px;
+                    color: red;
+                    font-weight: 700;
+                    border-radius: 50%;
+                    padding: 20px;
+
+                }
+               }
+        }
+
+
+        @media (max-width:1050px) {
+            @include flex-center(column,space-between, center); /* Added mixin */
+
+            .filter-options{
+                height: max-content;
+                width: 100%;
+            }
+
+        }
+
+        .display-content{
+            flex: 2;
+            max-height: 563px;
+            overflow-y: scroll;
+            padding: 1rem;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+
+            @include flex-center(column, space-between, center); /* Added mixin */
+            
+                    .data{
+            
+                        @include flex-center(row, flex-start, center); /* Added mixin */
+                        width: 60%;
+                        height: 40px;
+                        input[type="checkbox"] {
+                            appearance: none;          /* Remove default checkbox style */
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            width: 20px;               /* Adjust size */
+                            height: 20px;
+                            background-color: #ccc;    /* Unchecked color */
+                            border: 1px solid #e6e6e6;
+                            border-radius: 3px;
+                            cursor: pointer;
+                            position: relative;
+                        }
+                        
+                        input[type="checkbox"]:checked {
+                            background-color: green;   /* Color when checked */
+                        }
+                        
+                        input[type="checkbox"]::after {
+                            content: '';               /* Checkmark icon or design */
+                            position: absolute;
+                            top: 2px;
+                            left: 6px;
+                            width: 5px;
+                            height: 10px;
+                            border: solid white;
+                            border-width: 0 2px 2px 0;
+                            transform: rotate(45deg);
+                            display: none;             /* Hide checkmark by default */
+                        }
+                        
+                        input[type="checkbox"]:checked::after {
+                            display: block;            /* Show checkmark when checked */
+                        }
+                        
+                        p{
+                            text-align: center;
+                            padding: 10px;
+                            color: #000;
+                            font-size: 18px;
+                        }
+            
+                    }
+            
+                    .price{
+                        width: 95%;
+                        height: 20vh;    
+            
+                        @include flex-center(column, space-evenly, center); /* Added mixin */
+        
+                        input{
+                                width: 70%;                   
+                                height: 3.4vh;
+                                border: 1px solid black;
+                                outline: 0;
+                                padding: 5px $ten;
+                                margin: 0;
+                                border-radius: $ten;
+                                transition: box-shadow 0.2s ease;
+                        }
+            
+                        }
+
+                        @media (max-width: 1050px) {
+                            max-height: 300px ; 
+                        }
+
+    }
+
+
+ }
+
+ @media (max-width:800px) {
+    width: 90vw;
+}
+
+}
+
+}
+
+
+.filter-button{
+    width: 95vw;
+    height: 50px;
+    @include flex-center(row, flex-end, center); /* Added mixin */
+    padding: $ten;
+    margin: auto;
+    @include icon-in-button();
+    
+}

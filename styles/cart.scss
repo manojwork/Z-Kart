@@ -1,0 +1,171 @@
+
+
+// Cart page ...
+
+
+@import "variables";
+
+.cart-product {
+  width: 60%;
+  margin: $twenty auto;
+  padding: $fifteen;
+  border: 1px solid #ccc;
+  border-radius: $twenty;
+  background-color: #fff;
+  box-shadow: $light-shadow;
+
+  .buttons {
+    @include flex-center(row, center, center);
+
+    button {
+      width: 200px;
+      margin: $twenty;
+      font-size: $fifteen;
+      box-shadow: 1px 1px $ten rgba(0, 0, 0, 0.332);
+    }
+  }
+
+  .addCouponCode {
+    @include flex-center(row, center, center);
+    gap: 30px;
+    width: 100%;
+    height: 50px;
+
+    select, option {
+      font-size: $fifteen;
+      width: 40%;
+      height: 50px;
+      text-align: center;
+      background-color: $lightYellow;
+      border-radius: $fifteen;
+      border: none;
+      box-shadow: 2px 2px $ten rgba(0, 0, 0, 0.422);
+    }
+  }
+
+  .prices{
+    width: 100%;
+    @include flex-center(column, space-evenly, center);
+    margin: 30px;
+
+
+    .price-row{
+      width: 50%;
+      height: 50px;
+      @include flex-center(row, space-between, center);
+      h3{
+        margin: 0;
+        padding: 0;
+
+        &.final-price{
+          font-size: 30px;
+        }
+      }
+    
+    }
+    @media (max-width:850px) {
+      margin: 0;
+
+      .price-row{
+        width: 100%;
+      }
+    }
+
+  }
+  .cart-header {
+    text-align: center;
+    margin-bottom: $twenty;
+
+    h2{
+      font-size: 1.5rem;
+      color: #333;
+    }
+  }
+
+  .cart-item {
+    @include flex-center(row, flex-start, center);
+    gap: $fifteen;
+
+    .product-image {
+      width: 150px;
+      height: 150px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .product-details {
+      width: 100%;
+
+      .details-header {
+        @include flex-center(row, space-between, center);
+
+        .product-name {
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+
+        .btn-remove {
+          background: none;
+          border: none;
+          cursor: pointer;
+          margin-right: 30px;
+
+          i {
+            font-size: $twenty;
+            color: rgb(209, 0, 0);
+          }
+        }
+      }
+
+      .stock-info,
+      .product-price,
+      .total-price {
+        margin: 5px 0;
+        font-size: 1rem;
+      }
+
+      .quantity-section {
+        @include flex-center(row, flex-start, center);
+        gap: $ten;
+        margin: $ten 0;
+
+        input {
+          width: 50px;
+          padding: 5px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: center;
+
+      .product-image {
+        width: 100%;
+        height: 300px;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: 70%;
+  }
+}
+
+.coupons {
+  @include flex-center(column, center, center);
+
+  p {
+    width: 80%;
+    text-align: justify;
+  }
+
+  ul {
+    li {
+      list-style: none;
+    }
+  }
+}

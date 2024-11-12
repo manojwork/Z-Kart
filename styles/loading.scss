@@ -1,0 +1,32 @@
+
+
+// Loading Animation ...
+
+
+@import "variables";
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); // Light background with transparency
+    z-index: 150; // Ensure it's above other elements
+    @include flex-center(row, center, center); /* Added mixin */
+  }
+  
+  .loading-spinner {
+    // Style the spinner, you can use a simple CSS animation
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top: 5px solid $yellowBackground; // Color for the spinner
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

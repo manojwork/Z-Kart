@@ -1,0 +1,45 @@
+
+<div class="about-banner">
+
+    {{zkart-logo logoSize=100 sloganSize=0}}
+    <p>Experience the Future of Electronics</p>
+</div>
+
+<div class="features">
+
+{{#each model as |feature| }}
+
+
+<div class="feature">
+
+    {{#if feature.align}}
+
+    <div class="image" style="background-image: url('{{feature.image}}');">
+
+    </div>
+    <div class="text">
+        <h2>{{feature.title}}</h2>
+
+        <p>{{feature.body}} </p>
+    </div>
+
+    {{else}}
+
+    <div class="text">
+        <h2>{{feature.title}}</h2>
+        <p>{{feature.body}} </p>
+    </div>
+
+     <div class="image" style="background-image: url('{{feature.image}}');">
+
+    </div>
+
+
+    {{/if}}
+
+</div>
+
+{{/each}}
+
+
+</div>

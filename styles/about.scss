@@ -1,0 +1,85 @@
+
+//About Page ...
+
+@import "variables";
+
+$banner-gradient-start: rgba(0, 0, 0, 0.3);
+$banner-gradient-end: rgba(0, 0, 0, 0.5);
+$banner-height: 40vh;
+$default-image: url("https://t4.ftcdn.net/jpg/06/91/17/95/360_F_691179587_QSctAaNAIbYMjexjEV3w8clmvzcXmJuU.jpg");
+$feature-bg-color: white;
+
+// About Banner
+.about-banner {
+  width: 100%;
+  height: $banner-height;
+  background: 
+  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), 
+  $default-image;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  @include flex-center(column);
+
+  p {
+    color: rgb(192, 192, 192);
+    font-size: 20px;
+  }
+
+  animation: backgroundAnimation 5s ease-in-out infinite alternate;
+
+  @keyframes backgroundAnimation {
+    0% {
+      background: 
+        linear-gradient($banner-gradient-start, $banner-gradient-end), 
+        $default-image;
+    }
+    50% {
+      background: 
+        linear-gradient($banner-gradient-start, $banner-gradient-end), 
+        url("https://png.pngtree.com/thumb_back/fw800/background/20240103/pngtree-some-electronic-gadgets-on-a-wooden-table-image_13184033.png");
+    }
+    100% {
+      background: 
+        linear-gradient($banner-gradient-start, $banner-gradient-end), 
+        url("https://img.freepik.com/premium-photo/flat-lay-image-various-electronic-devices-including-smartphones-cameras-laptop-tablet_14117-472525.jpg");
+    }
+  }
+}
+
+// Features Section
+.features {
+  width: 80vw;
+  margin: auto;
+  padding: 30px;
+  height: max-content;
+  @include flex-center(column, space-evenly);
+
+  .feature {
+    width: 90%;
+    margin: 20px;
+    padding: 20px;
+    height: max-content;
+    background-color: $feature-bg-color;
+    border-radius: $basic-radius;
+    flex-wrap: wrap;
+    @include flex-center(row, space-evenly);
+
+    .image {
+      width: 300px;
+      height: 300px;
+      border-radius: $basic-radius;
+      background: url("https://png.pngtree.com/thumb_back/fh260/background/20240918/pngtree-exciting-innovations-in-tech-devices-beyond-assortment-of-electronic-gadgets-and-image_16184676.jpg");
+      background-size: cover;
+    }
+
+    .text {
+      width: 60%;
+      height: 300px;
+
+      @media (max-width: 850px) {
+        width: 100%;
+      }
+    }
+  }
+}

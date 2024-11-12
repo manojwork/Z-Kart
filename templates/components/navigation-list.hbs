@@ -1,0 +1,28 @@
+    <ul class="{{className}}"  >
+        {{#if isAdmin}}
+
+        <li>{{#link-to  "admin"  title="Click to navigate to the Admin Page" }}<i class="fa-solid fa-chess-king"></i>{{/link-to}}</li>
+        {{/if}}
+      <li>{{#link-to "index" title="Click to navigate to the Home Page" }}<i class="fa-solid fa-house"></i>{{/link-to}}</li>
+      <li>{{#link-to "products" title="Click to navigate to the Products dashboard " }}<i class="fa-brands fa-product-hunt"></i>{{/link-to}}</li>
+      <li>{{#link-to "about" title="Click to navigate to the About Page" }}<i class="fa-solid fa-circle-info"></i>{{/link-to}}</li>
+      
+      {{#if isCustomer}}
+       
+<li>
+  {{#link-to "Cart" title="Click to navigate to the Cart page" }}
+    <div class="cart-icon-container">
+      {{#if cartCount}}
+      <span class="cartCount">{{cartCount}}</span>
+      {{/if}}
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+  {{/link-to}}
+</li>
+
+      <li>{{#link-to "account" title="Click to navigate to the User Account Page "}}<i class="fa-solid fa-user"></i>{{/link-to}}</li>
+      
+      {{else}}
+      <li>{{#link-to "signin" title="Click to navigate to the Sign In Page"}} <i class="fa-sharp fa-solid fa-arrow-right-to-bracket"></i>{{/link-to}}</li>
+      {{/if}}
+    </ul>

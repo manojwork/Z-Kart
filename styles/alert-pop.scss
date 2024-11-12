@@ -1,0 +1,45 @@
+
+// Alert popup ...
+
+@import "variables";
+
+.alert-popup {
+  background-color: $pop-up-background;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000; // Ensures the popup stays above other content
+  @include flex-center(row, center, center); // Applying the mixin to center the alert popup
+
+  .alert-content {
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border-radius: $twenty;
+    box-shadow: $light-shadow; // Subtle shadow for elevation
+    @include flex-center(column, space-evenly, center); // Applying the mixin to organize content in a column layout
+
+    h2 {
+      font-size: 30px;
+    }
+
+    p {
+      color: #626262;
+    }
+
+    .close-button {
+      position: absolute;
+      margin: 5px 21px 20px 20px;
+      align-self: flex-end;
+      top: 35vh;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1); // Visual feedback on hover
+      }
+    }
+  }
+}

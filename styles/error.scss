@@ -1,0 +1,40 @@
+
+// Error Page ...
+
+@import "variables";
+
+.error-page {
+  height: 100vh; // Full viewport height
+  background-color: $yellowBackground; // Light red background
+  color: #721c24; // Dark red text color
+  text-align: center;
+  @include flex-center(column, center, center); // Applied the mixin
+
+  .error-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  .error-message {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .back-button {
+    width: max-content;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: tomato; // Bootstrap primary color
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: red; // Darker red on hover
+    }
+  }
+}
+  

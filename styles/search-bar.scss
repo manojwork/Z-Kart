@@ -1,0 +1,55 @@
+
+
+// Search Bar ...
+
+@import "variables";
+
+.search-form{
+  margin: auto;
+  @include flex-center(row, center, center);
+  padding: 15px;
+  width: 70%;
+  height: max-content;
+  border-radius: $ten;
+
+  .input-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+    i {
+      position: absolute;
+      right: 0.2px; // Positioning inside the input
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgb(162, 162, 162); // Icon color, adjust as needed
+      font-size: 20px;
+      text-shadow: none;
+      cursor: text;
+      padding: 0;
+      margin: 0;
+    }
+    
+    input {
+      width: 100%;
+      padding-left: 30px; // Add padding for icon space
+      height: 3.4vh;
+      border: 1px solid black;
+      outline: 0;
+      padding: 5px $ten;
+      margin: 0;
+      border-radius: $ten;
+      transition: box-shadow 0.2s ease;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    input {
+      width: 90%;
+    }
+  }
+}
+
+  
+ 
+  

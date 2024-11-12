@@ -1,0 +1,71 @@
+
+// banner design
+
+@import "variables";
+
+.full-width-banner-out {
+    position: relative;
+    overflow: hidden;
+    width: 100%;  
+    .banner-slider {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+  
+    .banner-slide {
+      min-width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+  
+      &.active {
+        opacity: 1;
+      }
+  
+      &.inactive {
+        display: none;
+      }
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit:cover;  // Ensure full poster visibility without cropping
+      }
+
+      @media (min-width:1600px) {
+        .minscreen{
+          width: 120%;
+        }
+        
+      }
+    }
+  
+    .prev-btn, .next-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent;
+      color: white;
+      border: none;
+      padding: $ten;
+      width: 50px;
+      cursor: pointer;
+      box-shadow: none;
+  
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+        box-shadow: $light-shadow;
+      }
+    }
+  
+    .prev-btn {
+      left: $ten;
+    }
+  
+    .next-btn {
+      right: $ten;
+    }
+  }
+  
+  

@@ -1,0 +1,155 @@
+
+
+// Payment pop up ... 
+
+
+@import "variables";
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $pop-up-background;
+}
+
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: $ten;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+  .popup-header {
+    @include flex-center(row, space-between, center);
+    margin-bottom: $fifteen;
+
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: green;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: black;
+    }
+  }
+
+  .address-form {
+    margin-bottom: 20px;
+    width: 100%;
+    height: max-content;
+    @include flex-center(column);
+
+    .payment-methods {
+      width: 100%;
+
+      h3 {
+        margin-bottom: $ten;
+      }
+
+      .payment-option {
+        width: 90%;
+        @include flex-center(row, flex-start, center);
+        padding: $ten;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: $ten auto;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        i {
+          color: $button-red;
+          margin-right: $ten;
+          &:hover{
+            color:red;
+          }
+        }
+
+        &:hover {
+          background: #f0f0f0;
+        }
+
+        &.selected {
+          background: #d1e7dd;
+          border-color: #0f5132;
+        }
+      }
+    }
+
+    .upi-form,
+    .card-form {
+      width: 100%;
+      margin-top: $fifteen;
+      @include flex-center(column, space-evenly, center);
+
+      p {
+        color: red;
+      }
+
+      input {
+        width: 90%;
+        padding: $ten;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: $ten;
+      }
+
+      .submit-btn {
+        width: 95%;
+        padding: $ten;
+        background-color: orange;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+          background-color: rgb(233, 152, 0);
+        }
+      }
+    }
+
+    .field {
+      width: 100%;
+      margin: 5px;
+      height: 50px;
+      gap: $ten;
+      @include flex-center(row, flex-start, center);
+
+      input {
+        width: 80%;
+        padding: $ten;
+        margin-bottom: 10px;
+        border: 0;
+        text-align: center;
+        border-radius: 5px;
+        height: $twenty;
+        border-bottom:1px solid gray ;
+      }
+
+      input[type="number"] {
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+        appearance: textfield;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
